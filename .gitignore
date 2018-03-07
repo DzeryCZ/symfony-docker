@@ -1,0 +1,16 @@
+###> symfony/framework-bundle ###
+/application/.env
+/application/public/bundles/
+/application/var/
+/application/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/webpack-encore-pack ###
+/application/node_modules/
+/application/public/build/
+###< symfony/webpack-encore-pack ###
+
+###> symfony/phpunit-bridge ###
+/application/.phpunit
+/application/phpunit.xml
+###< symfony/phpunit-bridge ###
