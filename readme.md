@@ -13,7 +13,7 @@ It uses 2 docker containers one for nginx and one for php7-fpm
 
 ## Setup
 
-    docker-machine create symfony-docker
+    docker-machine create --driver virtualbox symfony-docker
     docker-machine env symfony-docker
 
     cd docker
@@ -27,10 +27,9 @@ It uses 2 docker containers one for nginx and one for php7-fpm
 
 **Attempt to optimize performance.**
 
-Create Vagrant machine on your host computer, install docker and symfony inside that Vagrant machine and share code via sambe back to your host computer.
+Create Vagrant machine on your host computer, install docker and symfony inside that Vagrant machine and share code via samba back to your host computer.
 
-
-HyperV has be disabled
+*HyperV has to be disabled*
 
 ## Setup
 
