@@ -1,8 +1,7 @@
 FROM php:7-fpm
 
-RUN apt-get update \
-    && apt-get install -y nano curl 
+RUN apt-get update && apt-get install -y nano curl git
 
-# RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# RUN cd /application && composer install
+#RUN cd /application && php /usr/local/bin/composer install

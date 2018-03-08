@@ -9,18 +9,20 @@ Vagrant.configure(2) do |config|
     $script1 = <<SCRIPT
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get -y install samba git nano apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get -y install git
 cd ~
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt-get install docker-ce
+sudo git clone https://github.com/DzeryCZ/symfony-docker.git /symfony-docker
+cd /symfony-docker/vagrant
+bash setup.sh
 SCRIPT
 
   config.vm.box_check_update = true
   config.ssh.forward_agent = true
 
   config.vm.network "private_network", ip: "192.168.33.100"
+
+  config.ssh.username = "vagrant"
+  config.ssh.password = "vagrant"
 
   config.vm.provider "virtualbox" do |vb|
    vb.memory = "1024"
@@ -29,4 +31,6 @@ SCRIPT
    vb.customize [ "modifyvm", :id, "--cpuexecutioncap", "80"]
   end
   config.vm.provision "shell", inline: $script1
+  
+  config.vm.provider "virtualbox"
 end

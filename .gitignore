@@ -14,3 +14,6 @@
 /application/.phpunit
 /application/phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###> Vagrant ###
+.vgrant/
