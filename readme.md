@@ -5,7 +5,7 @@
 Purpose of this repository: 
 
     - Setup simple Symfony project in two docker containers
-    - Attempt to optimize page load speed by backwady sharing from Vagrant via samba
+    - Attempt to optimize page load speed by backward sharing from Vagrant via samba
 
 # Docker way
 
