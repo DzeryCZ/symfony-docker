@@ -13,13 +13,13 @@ sudo apt-get -y install git
 cd ~
 sudo git clone https://github.com/DzeryCZ/symfony-docker.git /symfony-docker
 cd /symfony-docker/vagrant
-bash setup.sh
+sudo bash setup.sh
 SCRIPT
 
   config.vm.box_check_update = true
   config.ssh.forward_agent = true
 
-  config.vm.network "private_network", ip: "192.168.33.100"
+  config.vm.network "private_network", ip: "192.168.42.100"
 
   config.ssh.username = "vagrant"
   config.ssh.password = "vagrant"

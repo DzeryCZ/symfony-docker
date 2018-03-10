@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Install basic stuff
+sudo apt-get update
 sudo apt-get -y install \
     nano \
     apt-transport-https \
@@ -18,6 +19,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Setup Samba drive
+sudo apt-get update
 sudo apt-get -y install samba
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bck
 
@@ -36,6 +38,7 @@ sudo echo "browsable = yes" | sudo tee -a /etc/samba/smb.conf
 sudo echo "public = yes" | sudo tee -a /etc/samba/smb.conf
 sudo echo "writable = yes" | sudo tee -a /etc/samba/smb.conf
 sudo echo "available = yes" | sudo tee -a /etc/samba/smb.conf
+sudo echo "guest ok = yes" | sudo tee -a /etc/samba/smb.conf
 # Restart Samba service
 sudo /etc/init.d/samba restart
 
