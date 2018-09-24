@@ -1,15 +1,26 @@
-# Symfony in Docker Containers
+# Attempt to optimize Windows performance of Dockerized applications
 
-Purpose of this repository: 
+## Purpose of this repository
 
-    - Setup simple Symfony project in two docker containers
-    - Optimize page load speed by backward sharing from Vagrant via samba
+Virtual box share folder protocol is too slow, especially with using a lot of small files. That's why I tried to explore several ways, how to optimize this behavioral.
+
+- This repository contains basic Symfony 2 project in 2 docker containers
+- There are used 2 ways to create a local environment for developement
+- Try to Optimize page load speed by backward sharing from Vagrant via samba
 
 ---------------------------------------------------------------------------
 
-# Docker way
+# Docker-machine way
 
-It uses 2 docker containers one for nginx and one for php7-fpm
+Demonstration of standard setup using `docker-machine` with `docker-compose`, setting up two containers.
+
+## Advantages
+
+- Everything is setup as you'd expect.
+
+## Disadvantages
+
+- Page speed is slow.
 
 ## Setup
 
@@ -31,13 +42,20 @@ Run containers
 
 ---------------------------------------------------------------------------
 
-# Vagrant way
+# Vagrant way (Reverse folder sharing)
 
-**Attempt to optimize performance.**
-
-Create Vagrant machine on your host computer, install docker and symfony inside that Vagrant machine and share code via samba back to your host computer.
+It uses the same docker containers, but uses `vagrant` instead of `docker-machine`. During the setup, Vagrant VM is pulling the repository onto its virtual disk (non shared) and then share it reversely via samba protocol back to windows.
 
 *Notice: HyperV has to be disabled*
+
+## Advantages
+
+- Page load speed is super fast
+
+## Disadvantages
+
+- Since code is lying inside of the VM, any crash of this VM can cause loss of your uncommited changes.
+- Opening shared SMB folder in IDE (PhpStorm) is slow.
 
 ## Setup
 
